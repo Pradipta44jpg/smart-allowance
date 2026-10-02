@@ -29,6 +29,7 @@ function RoleRoute({ requiredRole, children }) {
 }
 
 export default function App() {
+ 
   return (
     <Suspense fallback={<PageLoader />}>
       <Routes>
