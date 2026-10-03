@@ -11,6 +11,7 @@ import {
 } from "recharts";
 
 import Navbar from "@/components/Navbar";
+import { DashboardRoleArt } from "@/components/RoleTransition";
 import Sidebar from "@/components/Sidebar";
 import StatCard from "@/components/StatCard";
 import SpendingLimitCard from "@/components/SpendingLimitCard";
@@ -80,7 +81,8 @@ export default function ChildDashboard() {
         <main className="flex-1 min-w-0 p-4 md:p-6 lg:p-8">
 
           {/* ── Header ─────────────────────────────────────────── */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <div className="dashboard-welcome dashboard-welcome--child flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <DashboardRoleArt role="child" />
             <div>
               <h1 className="text-2xl font-bold text-gray-900">My Allowance</h1>
               <p className="text-sm text-gray-400 mt-0.5">

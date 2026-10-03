@@ -12,6 +12,7 @@ import {
 } from "recharts";
 
 import Navbar from "@/components/Navbar";
+import { DashboardRoleArt } from "@/components/RoleTransition";
 import Sidebar from "@/components/Sidebar";
 import StatCard from "@/components/StatCard";
 import AllowanceCard from "@/components/AllowanceCard";
@@ -108,7 +109,8 @@ export default function ParentDashboard() {
         <main className="flex-1 min-w-0 p-4 md:p-6 lg:p-8">
 
           {/* ── Page header ──────────────────────────────────── */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <div className="dashboard-welcome flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <DashboardRoleArt role="parent" />
             <div>
               <h1 className="text-2xl font-bold text-gray-900">Parent Dashboard</h1>
               <p className="text-sm text-gray-400 mt-0.5">

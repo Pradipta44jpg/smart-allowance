@@ -3,8 +3,9 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 import { useWallet } from "@/hooks/useWallet";
 import LoadingSpinner from "@/components/LoadingSpinner";
+import { RoleTransitionProvider } from "@/components/RoleTransition";
 
-const LandingPage      = lazy(() => import("@/pages/LandingPage"));
+const SignInPage       = lazy(() => import("@/pages/SignInPage"));
 const ParentDashboard  = lazy(() => import("@/pages/ParentDashboard"));
 const ChildDashboard   = lazy(() => import("@/pages/ChildDashboard"));
 const AllowancePage    = lazy(() => import("@/pages/AllowancePage"));
@@ -30,10 +31,11 @@ function RoleRoute({ requiredRole, children }) {
 
 export default function App() {
   return (
-    <Suspense fallback={<PageLoader />}>
+    <RoleTransitionProvider><Suspense fallback={<PageLoader />}>
       <Routes>
         {/* Public — role selection / landing */}
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<SignInPage />} />
+        <Route path="/sign-in" element={<SignInPage />} />
 
         {/* Parent routes */}
         <Route path="/parent" element={<RoleRoute requiredRole="parent"><ParentDashboard /></RoleRoute>} />
@@ -47,6 +49,6 @@ export default function App() {
 
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </Suspense>
+    </Suspense></RoleTransitionProvider>
   );
 }
